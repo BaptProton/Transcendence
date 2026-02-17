@@ -1,0 +1,45 @@
+services:
+  api:
+    build: ./backend
+    container_name: transcendence_api
+    volumes:
+      - sqlite_data:/app/data
+      - uploads_data:/app/uploads
+
+    environment:
+      - PORT=8000
+      - JWT_SECRET=${JWT_SECRET:?JWT_SECRET}
+      - WEB3_PROVIDER_URI=${WEB3_PROVIDER_URI:-https://api.avax-test.network/ext/bc/C/rpc}
+      - BLOCKCHAIN_PRIVATE_KEY=${BLOCKCHAIN_PRIVATE_KEY:-}
+      - CONTRACT_ADDRESS=${CONTRACT_ADDRESS:-}
+      - OAUTH42_CLIENT_ID=${OAUTH42_CLIENT_ID:-}
+      - OAUTH42_SECRET=${OAUTH42_SECRET:-}
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID:-}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET:-}
+    networks:
+      - transcendence_network
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: transcendence_nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl/:/etc/nginx/ssl
+      - ./frontend/dist/:/usr/share/nginx/html
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    depends_on:
+      - api
+    networks:
+      - transcendence_network
+    restart: unless-stopped
+
+networks:
+  transcendence_network:
+    driver: bridge
+
+volumes:
+  sqlite_data:
+  uploads_data:

@@ -1,0 +1,179 @@
+#stats-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+#user-stats-base {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--text-light);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.name-user-stats-base h2 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+#graph-anneaux {
+    background: transparent !important;
+    border: none;
+    width: 160px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.graph-win-rate-stats-base {
+    text-align: center;
+}
+
+.graph-win-rate-stats-base p {
+    margin: 8px 0 0 0;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.graph-win-rate-stats-base h2 {
+    margin: 5px 0 0 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.win-and-lose-stats-base {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.win-stats-base h2 {
+    color: #00babc;
+}
+
+.loses-stats-base h2 {
+    color: #f05454;
+}
+
+.game-play-stats-base h2 {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+#follow-win-game {
+    grid-column: 2;
+    grid-row: 1;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid #eaeaea;
+    border-radius: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#follow-win-game .graph-win-game {
+    flex: 1;               
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#graph-line-win-streak {
+    border: none !important; 
+    outline: none !important;
+    background: transparent !important;
+    width: 100%;
+    height: calc(100% - 40px) !important; 
+    display: block;
+}
+
+#follow-score-game {
+    grid-column: 2;
+    grid-row: 2;
+    height: 250px;
+    background: rgba(0,0,0,0.2);
+    border: 2px solid #eaeaea;
+    border-radius: 20px;
+    padding: 15px;  
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#follow-score-game h2 {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#follow-score-game .graph-bar {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#graph-bar-score {
+    border: none !important; 
+    outline: none !important;
+    background: transparent !important;
+    width: 100%;
+}
+
+#tab-history-match {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid #eaeaea;
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+}
+
+#tab-history-match table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+#tab-history-match thead th {
+    text-align: left;
+    padding: 10px 5px;
+    font-weight: bold;
+    color: #ffffff;
+    border-bottom: 2px solid #eaeaea;
+}
+
+#tab-history-match tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#tab-history-match tbody td {
+    padding: 10px 5px;
+    color: #eaeaea;
+}
+
+#tab-history-match tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
